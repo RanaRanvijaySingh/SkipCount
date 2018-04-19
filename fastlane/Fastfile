@@ -1,0 +1,75 @@
+
+default_platform(:android)
+
+platform :android do
+
+GRADLE_PATH = '../app/build.gradle'
+
+#Regular expression to read version Code
+REGX_VERSION_CODE = /versionCode\s+(\d+)/
+
+#Regular expression to read version Name
+REGX_VERSION_NAME = /versionName\s+"(\S+)"/
+
+  desc "Start beta deployment"
+  lane :beta do
+    incrementBuild
+    cleanBuild
+    createReleaseBuild
+    betaDeploy
+  end
+
+  desc "Run clean command"
+  lane :cleanBuild do
+    gradle(task: "clean")
+  end
+
+  desc "Create release build"
+  lane :createReleaseBuild do
+    gradle(
+        task: 'assemble',
+        build_type: 'Release'
+        )
+    #or gradle(task: "assembleRelease")
+  end
+
+  desc "Push build on beta"
+  lane :betaDeploy do
+    upload_to_play_store(track: 'beta')
+  end
+
+  lane :incrementBuild do
+    incrementBuildCode
+    incrementBuildName
+  end
+
+  lane :incrementBuildCode do
+    #Open the gradle file and read version code and increment by one
+    s = File.read(GRADLE_PATH)
+    versionCode = s[REGX_VERSION_CODE, 1].to_i
+    s[REGX_VERSION_CODE, 1] = (versionCode + 1).to_s
+
+    rewriteGradleFile(s)
+  end
+
+  def rewriteGradleFile(s)
+      #Re-write
+      f = File.new(GRADLE_PATH, 'w')
+      f.write(s)
+      f.close
+  end
+
+  lane :incrementBuildName do
+    #Open the gradle file and read version code and increment by one
+    s = File.read(GRADLE_PATH)
+    versionCode = s[REGX_VERSION_CODE, 1].to_i
+    s[REGX_VERSION_NAME, 1] = versionCode.to_s
+
+    rewriteGradleFile(s)
+  end
+
+  lane :gitCommit do
+    git_add(path: GRADLE_PATH)
+    git_commit(path: GRADLE_PATH, message: "Version bump")
+  end
+end

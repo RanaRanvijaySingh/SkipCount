@@ -1,0 +1,2 @@
+json_key_file("app/GooglePlayAndroidDeveloper.json")
+package_name("com.rana.skipcount")

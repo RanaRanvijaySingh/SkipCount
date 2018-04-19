@@ -24,6 +24,12 @@ REGX_VERSION_NAME = /versionName\s+"(\S+)"/
 
     #Execute lane to deploy build on beta
     betaDeploy
+
+    #Execute lane to make a git commit
+    gitCommit
+
+    #Execute lane to make a git tag
+    gitTag
   end
 
   desc "Run clean command"

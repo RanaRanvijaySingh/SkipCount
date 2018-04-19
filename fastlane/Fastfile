@@ -69,7 +69,7 @@ REGX_VERSION_NAME = /versionName\s+"(\S+)"/
   end
 
   lane :gitCommit do
-    git_add(path: GRADLE_PATH)
-    git_commit(path: GRADLE_PATH, message: "Version bump")
+    git_add
+    git_commit(message: "Version bump")
   end
 end

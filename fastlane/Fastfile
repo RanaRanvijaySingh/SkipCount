@@ -13,9 +13,16 @@ REGX_VERSION_NAME = /versionName\s+"(\S+)"/
 
   desc "Start beta deployment"
   lane :beta do
+    #Execute lane to increment build code and name
     incrementBuild
+
+    #Execute lane to clear the build
     cleanBuild
+
+    #Execute lane to generate signed apk
     createReleaseBuild
+
+    #Execute lane to deploy build on beta
     betaDeploy
   end
 
@@ -38,17 +45,23 @@ REGX_VERSION_NAME = /versionName\s+"(\S+)"/
     upload_to_play_store(track: 'beta')
   end
 
+  desc "Increment build code and name"
   lane :incrementBuild do
+    #Execute lane to increment build code
     incrementBuildCode
+
+    #Execute lane to increment build name
     incrementBuildName
   end
 
+  desc "Increment build code"
   lane :incrementBuildCode do
     #Open the gradle file and read version code and increment by one
     s = File.read(GRADLE_PATH)
     versionCode = s[REGX_VERSION_CODE, 1].to_i
     s[REGX_VERSION_CODE, 1] = (versionCode + 1).to_s
 
+    #Rewrite bulid.gradle file
     rewriteGradleFile(s)
   end
 
@@ -59,17 +72,38 @@ REGX_VERSION_NAME = /versionName\s+"(\S+)"/
       f.close
   end
 
+  desc "Increment build name"
   lane :incrementBuildName do
     #Open the gradle file and read version code and increment by one
     s = File.read(GRADLE_PATH)
     versionCode = s[REGX_VERSION_CODE, 1].to_i
     s[REGX_VERSION_NAME, 1] = versionCode.to_s
 
+    #Rewrite bulid.gradle file
     rewriteGradleFile(s)
   end
 
+  desc "Make new commit"
   lane :gitCommit do
+    #Command to add changes
     git_add
+
+    #Command to add commit message
     git_commit(message: "Version bump")
+  end
+
+  desc "Create new tag"
+  lane :gitTag do
+    #Open the gradle file and read version code and increment by one
+    s = File.read(GRADLE_PATH)
+    versionCode = s[REGX_VERSION_CODE, 1].to_i
+
+    tag = "v" + versionCode.to_s
+
+    #Command to add new tag
+    add_git_tag(tag: tag)
+
+    #Command to push tags
+    push_git_tags
   end
 end

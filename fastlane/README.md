@@ -56,6 +56,11 @@ fastlane android incrementBuildName
 fastlane android gitCommit
 ```
 
+### android gitTag
+```
+fastlane android gitTag
+```
+
 
 ----
 

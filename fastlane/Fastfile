@@ -4,6 +4,7 @@ default_platform(:android)
 platform :android do
 
 GRADLE_PATH = '../app/build.gradle'
+COMMIT_FILE_PATH = '/Users/rana.singh/StudioProjects/SkipCount/fastlane/fastlaneCommit.txt'
 
 #Regular expression to read version Code
 REGX_VERSION_CODE = /versionCode\s+(\d+)/
@@ -95,7 +96,7 @@ REGX_VERSION_NAME = /versionName\s+"(\S+)"/
     git_add
 
     #Command to add commit message
-    git_commit(message: "Version bump")
+    git_commit( message: "Version bump")
   end
 
   desc "Create new tag"

@@ -40,27 +40,27 @@ Push build on beta
 ```
 fastlane android incrementBuild
 ```
-
+Increment build code and name
 ### android incrementBuildCode
 ```
 fastlane android incrementBuildCode
 ```
-
+Increment build code
 ### android incrementBuildName
 ```
 fastlane android incrementBuildName
 ```
-
+Increment build name
 ### android gitCommit
 ```
 fastlane android gitCommit
 ```
-
+Make new commit
 ### android gitTag
 ```
 fastlane android gitTag
 ```
-
+Create new tag
 
 ----
 

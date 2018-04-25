@@ -10,8 +10,8 @@ android {
         applicationId "com.rana.skipcount"
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 8
-        versionName "8"
+        versionCode 9
+        versionName "9"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {

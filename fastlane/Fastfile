@@ -46,6 +46,15 @@ REGX_VERSION_NAME = /versionName\s+"(\S+)"/
     #or gradle(task: "assembleRelease")
   end
 
+  desc "Create release build"
+  lane :createDebugBuild do
+    gradle(
+        task: 'assemble',
+        build_type: 'Debug'
+        )
+    #or gradle(task: "assembleDebug")
+  end
+
   desc "Push build on beta"
   lane :betaDeploy do
     upload_to_play_store(track: 'beta')
@@ -111,5 +120,18 @@ REGX_VERSION_NAME = /versionName\s+"(\S+)"/
 
     #Command to push tags
     push_git_tags
+  end
+
+  desc "Take screenshots"
+  lane :screenshots do
+    cleanBuild
+    createDebugBuild
+    createAndroidTestBuild
+    screengrab
+  end
+
+  desc "Create android test build"
+  lane :createAndroidTestBuild do
+    gradle(task: "assembleAndroidTest")
   end
 end

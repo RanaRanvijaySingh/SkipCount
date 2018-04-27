@@ -31,6 +31,11 @@ Run clean command
 fastlane android createReleaseBuild
 ```
 Create release build
+### android createDebugBuild
+```
+fastlane android createDebugBuild
+```
+Create release build
 ### android betaDeploy
 ```
 fastlane android betaDeploy
@@ -61,6 +66,16 @@ Make new commit
 fastlane android gitTag
 ```
 Create new tag
+### android screenshots
+```
+fastlane android screenshots
+```
+Take screenshots
+### android createAndroidTestBuild
+```
+fastlane android createAndroidTestBuild
+```
+Create android test build
 
 ----
 

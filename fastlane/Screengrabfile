@@ -1,0 +1,10 @@
+
+APK_PATH = '/Users/rana.singh/StudioProjects/SkipCount/app/build/outputs/apk/debug/app-debug.apk'
+TEST_APK_PATH = '/Users/rana.singh/StudioProjects/SkipCount/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk'
+
+app_package_name('com.rana.skipcount')
+use_tests_in_packages(['com.rana.skipcount'])
+app_apk_path(APK_PATH)
+tests_apk_path(TEST_APK_PATH)
+locales(['en-US'])
+clear_previous_screenshots(true)

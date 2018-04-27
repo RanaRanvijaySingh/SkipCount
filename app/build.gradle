@@ -8,7 +8,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.rana.skipcount"
-        minSdkVersion 15
+        minSdkVersion 18
         targetSdkVersion 27
         versionCode 12
         versionName "12"
@@ -40,4 +40,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation('tools.fastlane:screengrab:1.2.0')
 }

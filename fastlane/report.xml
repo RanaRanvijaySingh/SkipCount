@@ -5,82 +5,42 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="00: default_platform" time="0.007603">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.005531">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="01: Switch to android incrementBuild lane" time="0.00083">
+      <testcase classname="fastlane.lanes" name="1: Switch to android cleanBuild lane" time="0.001002">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="02: Switch to android incrementBuildCode lane" time="0.000741">
+      <testcase classname="fastlane.lanes" name="2: gradle" time="2.512225">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="03: Switch to android incrementBuildName lane" time="0.000831">
+      <testcase classname="fastlane.lanes" name="3: Switch to android createDebugBuild lane" time="0.001374">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="04: Switch to android cleanBuild lane" time="0.000853">
+      <testcase classname="fastlane.lanes" name="4: gradle" time="12.942343">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="05: gradle" time="10.097928">
+      <testcase classname="fastlane.lanes" name="5: Switch to android createAndroidTestBuild lane" time="0.000958">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="06: Switch to android createReleaseBuild lane" time="0.000925">
+      <testcase classname="fastlane.lanes" name="6: gradle" time="6.522408">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="07: gradle" time="32.77767">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="08: Switch to android betaDeploy lane" time="0.002158">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="09: upload_to_play_store" time="156.062334">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="10: Switch to android gitCommit lane" time="0.001303">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="11: git_add" time="0.044474">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="12: git_commit" time="3.401708">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="13: Switch to android gitTag lane" time="0.003486">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="14: add_git_tag" time="0.027571">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="15: push_git_tags" time="4.243168">
+      <testcase classname="fastlane.lanes" name="7: screengrab" time="13.297932">
         
       </testcase>
     
